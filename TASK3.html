@@ -75,10 +75,10 @@
       const div = document.createElement("div");
       div.className = "question";
 
-      let html = <h3>Q${i + 1}. ${q.question}</h3><div class="options">;
+      let html = `<h3>Q${i + 1}. ${q.question}</h3><div class="options">`;
 
       q.options.forEach(opt => {
-        html += <label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label>;
+        html += `<label><input type="radio" name="q${i}" value="${opt}"> ${opt}</label>`;
       });
 
       html += "</div>";
@@ -96,12 +96,12 @@
   function showScore() {
     let score = 0;
     questions.forEach((q, i) => {
-      const selected = document.querySelector(input[name="q${i}"]:checked);
+      const selected = document.querySelector(`input[name="q${i}"]:checked`);
       if (selected && selected.value === q.answer) {
         score++;
       }
     });
-    quizContainer.innerHTML = <div id="score">Your Score: ${score}/${questions.length}</div>;
+    quizContainer.innerHTML = `<div id="score">Your Score: ${score}/${questions.length}</div>`;
   }
 
   loadQuiz();
